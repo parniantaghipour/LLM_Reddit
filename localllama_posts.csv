@@ -1,0 +1,978 @@
+1gj2ga4,What's  your cloud setup? ,"For people who are running LLMs in a hosted environment and use them for some sort of service or job that also runs in the cloud what's your setup and why?
+
+I normally use AWS for things but the GPU EC2 machines are hella expensive. 
+
+I could use some of these LLM services that allow me to use whatever model I want I'll have latency between my app service on AWS and a GPU renting service. 
+
+So for people who are both running apps and models in the cloud what does your network topography look like, what are you hosting, what's the load to your service, what's the cost, and why did you pick this setup? 
+
+",2024-11-03 17:04:32,1,https://www.reddit.com/r/LocalLLaMA/comments/1gj2ga4/whats_your_cloud_setup/
+1gj1fyn,built an agent with just FastAPI: small LLMs FTW 🙌,"Working on a billing AI agent for small business owners - help generate and create invoices. Started with prompt-engineering and used the function calling workflow of chatGPT. Was slow (~3 seconds to resolve tools) and the devEX was crufty. Tried this open source project https://github.com/katanemo/arch, which essentially uses a custom-built LLM that converts user prompts to APIs passing in structured JSON. Felt super fast. Once my API returned a response, it automatically calls chatGPT to summarize the response. And I just had to write this 👇🤯 (plus a config file for my system prompt, etc). Project offers more features, but writing API code to build a full-blown agent without unnecessary prompt engineering felt really good.",2024-11-03 16:14:41,19,https://i.redd.it/mmxcryy12syd1.jpeg
+1gj1e9p,tips for dealing with unused tokens? keeps getting clogged,,2024-11-03 16:12:24,16,https://v.redd.it/9bteq03a1syd1
+1gj14oa,Best Open Source Voice Cloning if you have lots of reference audio?,"Hey everyone,
+
+I've been using ElevenLabs for awhile but now want to self-host. I was really impressed with F5-TTS for its ability to clone using only a few seconds of audio.
+
+However, for my use case, I have 10-20 minutes of audio per character to train on. What voice cloning solutions work best in that case? Ideally, I train the model in advance on each character and then use that model for inference.",2024-11-03 16:00:02,21,https://www.reddit.com/r/LocalLLaMA/comments/1gj14oa/best_open_source_voice_cloning_if_you_have_lots/
+1gizq17,What are your favorite uses of local LLM's that closed source LLM's can't provide?,"I've been meaning to get an AI rig for a while, and with the new M4 just around the corner I wanted to pick your brains.
+
+Does running LLM's locally opens you up to a new ecosystem of AI use cases through the open source world, or does it mostly mirror the closed source experience with the peace of mind that comes with self-hosting?
+
+I'm personally not too affected by data/IP concerns, and want to better compare buying API tokens vs using a local rig.",2024-11-03 14:55:08,38,https://www.reddit.com/r/LocalLLaMA/comments/1gizq17/what_are_your_favorite_uses_of_local_llms_that/
+1giz9px,magnum-v4-9b for web-llm,"[https://huggingface.co/oopus/magnum-v4-9b-q4f16\_1-MLC](https://huggingface.co/oopus/magnum-v4-9b-q4f16_1-MLC)
+
+If you are a developer and want to use magnum-v4-9b in your production environment for users to access in a web browser, feel free to try it out.",2024-11-03 14:34:39,5,https://www.reddit.com/r/LocalLLaMA/comments/1giz9px/magnumv49b_for_webllm/
+1giy3pt,"Your best 3b model? Llama 3.2, kwen 2.5 or Phi 3.5?","Tested very little since they slow on my device but usable, looks like phi 3.5b might be smartest of these small 3b models? ",2024-11-03 13:43:23,18,https://www.reddit.com/r/LocalLLaMA/comments/1giy3pt/your_best_3b_model_llama_32_kwen_25_or_phi_35/
+1giw2lr,Advice wanted or Squeezing Tensor Parallelism Performance out of a PCIe lane constrained z690 motherboard,"My AI rig evolved out of pandemic gaming computer, this is what it looks like today:  
+MSI z690 with i9-12900K and 192GB DDR5  
+4090 -> pcie 4.0 x8  
+4090 -> pcie 4.0 x8  
+3090 -> pcie 3.0 x4 (nvme to pcie adapter in x4 cpu lane slot)  
+3090 -> pcie 3.0 x4 (3rd physical slot on the board)
+
+In tabbyAPI when I set tensor parallelism to true I went from 10 to 15 tokens per seconds with the Q5 quant of Mistral Large. The advice of ""just get an Epyc/Threadripper"" isn't a good fit for me because I also use this system for gaming/VR as well as booting into linux for AI inference.
+
+Case Situation:  
+I am in a Lian Li O11 Dynamic EVO XL case with the 4090s in the front compartment, and the 3090s mounted in HDD drive cages above and below the 1600watt power supply. Every bit of space in the setup is very carefully managed.  
+
+
+Questions:   
+If I could change the 2 3090s from being on pcie 3.0 x4 to pcie 4.0 x4 by switching to nvme based oculink adapters that support 4.0, does anyone know how many more tokens per second is reasonable to expect from Mistral Large q5?
+
+Does anyone know of oculink adapters that can be powered off a regular power supply? I see those 24 pin plugs on them, and I'm wary of splitting my main 24 pin power connector off from that. I also see PD options, but I'd really like to keep everything inside this case without having external power bricks hanging off of it.
+
+Similarly, if I did eventually upgrade to a board with four or more pcie 4.0 x16 slots, how much could I expect tokens per second to go up? ",2024-11-03 12:14:30,7,https://www.reddit.com/r/LocalLLaMA/comments/1giw2lr/advice_wanted_or_squeezing_tensor_parallelism/
+1giuvwm,"Cheap ""Fine-tuning""","Hi. As an oldtimer, my idea of a training set is table of feature vectors (or documents/images) with their corresponding labels. Is this the same format that is used to ""fine-tune"" an LLM?
+
+So far, the most intuitive way to do ""classic supervised learning"" with a LLM for me has been the ""in-context way"", i.e. essentially giving my whole training set to the model inside the context, and then ask it to give me the label for the test sample. This seems very inefficient though, if anything for the long context in every call. There must be a better way. 
+
+What are better ways to have an LLM do supervised classification of a text (for simplicity) document for me, that also does not require GPUs or expensive compute?
+
+Many thanks.",2024-11-03 11:24:08,5,https://www.reddit.com/r/LocalLLaMA/comments/1giuvwm/cheap_finetuning/
+1gitsek,Urgent New Nvidia Security Warning For 200 Million Linux And Windows Gamers,,2024-11-03 10:37:02,137,https://www.forbes.com/sites/daveywinder/2024/10/25/urgent-new-nvidia-security-warning-for-200-million-linux-and-windows-gamers/
+1git52m,Incremental fine tuning,"I've created my own (statically type checked) programming language and I'd like to teach a LLM how to code in it. My idea is to:
+
+1. Get the LLM to generate a programming challenge, a proposed solution written in my language and a test case.
+2. If the one-shot generated code passes the test then add it to training set. If it fails then fix it manually and add the fix to the training set.
+3. Run a single step of fine tuning.
+4. Repeat until the LLM is proficient in my language.
+
+Is it feasible to change the training data every step like this?",2024-11-03 10:09:33,11,https://www.reddit.com/r/LocalLLaMA/comments/1git52m/incremental_fine_tuning/
+1girzia,Exploring AI's inner alternative thoughts when chatting,,2024-11-03 09:20:05,239,https://v.redd.it/szdebv40ypyd1
+1girn7t,"tldw (open source NotebookLM) - Sharing a tool I've been working on for the past several months, similar to NotebookLM, but self-hosted/can be ran entirely local on linux/mac/windows (no podcast creation though, yet)","tl/dr: WIP project, still beta-status, python-based RAG chat front end with capability to ingest various media, store it in sqlite DBs, and make it available for review/chatting via RAG. Chunking is user-tweakable, for raw data and embeddings. Possible to use local embeddings(HuggingFace/Llama.cpp) or OpenAI. Also has character card support. UI is bad/a placeholder, goal is to get to 'feature completion' and then migrate to FastAPI + Custom JS frontend. Looking to share/get feedback/opinions on it. Goal is to create a tool that can help others save time and keep their data in their hands.  
+The tool: [https://github.com/rmusser01/tldw](https://github.com/rmusser01/tldw)
+
+Demo doesn't currently work, (issue with Gradio/HF), plan to setup another one in the next few days, but in the meantime here is a video walkthrough of a fresh installation: [https://github.com/rmusser01/tldw/blob/main/Docs/Screenshots/tldw-run-through-blank.webm](https://github.com/rmusser01/tldw/blob/main/Docs/Screenshots/tldw-run-through-blank.webm)
+
+I started working on a project to help me consume conference presentations at a faster rate, then found out about NotebookLM and thought 'why not extend it to have that featureset?'. Have been working on it for the past several months, and is at a point where I feel slightly more comfortable sharing it. Its open source, licensed under Apache 2.0. Started out as a fork of \`the-crypt-keeper\`'s tldw project for transcribing youtube videos, and has since grown from a 500 line script to a 60k+(?) line application.
+
+Features:
+
+\- API support for 15 different ones, OpenAI, Cohere, Anthropic, OpenRouter, DeepSeek, Mistral, Groq, and HuggingFace for commercial, Local: Llama.cpp, Kobold.cpp, oobabooga, TabbyAPI, vllm, ollama, aphrodite, custom OpenAI API.
+
+\- Ingest/download/transcribe videos from local files or URLs(yt-dlp is used, so youtube+2k other sites are supported)
+
+\- Same for audio/podcasts/ebooks/plaintext/xml
+
+\- Web Scraping pipeline for individual URLs, sitemap, complete URL(scrape entire root domain), Recursive Scraping(scrape everything under a specific URL)
+
+\- PDF ingestion using pymupdf(Plan is to upgrade it to pymupdf4llm and also integrate docling so the user can decide which works better)
+
+\- Live Transcription/recording
+
+\- Arxiv API integration, so you can search for papers on arxiv and ingest them from the app.
+
+\- RAG Search + Chat - Two current modes, 1 query search and ongoing chatting use RAG with your choice of which DB to use(Media, Conversations, Notes, Character Chats)
+
+\- Note taking in the RAG Chat ala NotebookLM. Have the ability to edit/modify notes + add keyword tagging (with support for meta-keyword collections, WIP)
+
+\- Regular old LLM chat, 4 different UI styles, 2 being vertical/horizontal, the other 2 being 4-API chat, so 4 chat windows with different APIs in one window, and the other is 3 APIs but one prompt, so you can see how different APIs respond to the same input.
+
+\- Character chat support - its no sillytavern, but it has support for character card importing/creation/editing/export. (The eventual goal is to build a replica of the Digital Primer from the Diamond Age)
+
+\- Some basic writing tools for analysis/review
+
+\- Search across it all via FTS5 from sqlite (full text search with keyword support)
+
+\- Prompt DB with the option to add/edit/clone/delete prompts. Also all stored in a separate SQLite DB.
+
+\- Embeddings creation for all/specific content (WIP)
+
+\- Keyword Search/viewing for all DBs
+
+\- Import Functionality - support for mass ingestion of txt/md files as well as obsidian vaults, prompts(single or multiple) and mediawiki dumps
+
+\- Support for exporting it all (Its all SQLite backed anyways, so at worse you could just write raw manual sql queries against the DB)
+
+\- DB Backup/Restore - Support for creating Full/Incremental DB backups (ToDo is writing up a doc explaining how to do invisible/offsite backups with litestream)
+
+\- PlantUML mindmap creator (PoC, but goal is to be able to create mindmaps from your content for review)
+
+\- Anki Deck Creation/Validation/editing - Ability to create a working anki deck, also validate it to make sure it works(?), Editing is in but not working.
+
+\- Support for running/hosting LLMs locally using Llamafile/Ollama
+
+\- Trashcan support for the Media DB to prevent accidental deletion of media items. (15 day period before deletion actually occurs, with the option for manual override)
+
+\- Config Editing page in the app, so you can modify the config file from your browser.
+
+Any feedback is welcome/wanted. The README isn't the greatest, but its on my todo list.  
+If there's a feature you'd like to see/suggest, please first look at [https://github.com/rmusser01/tldw/issues](https://github.com/rmusser01/tldw/issues) to see the features I currently have planned.
+
+Edit: My notes on RAG [https://github.com/rmusser01/tldw/blob/main/Docs/RAG\_Notes.md](https://github.com/rmusser01/tldw/blob/main/Docs/RAG_Notes.md)  
+and my RAG pipeline: [https://github.com/rmusser01/tldw/blob/9effd1865d2e6dedc57b306c511a25b21bc6f940/App\_Function\_Libraries/RAG/RAG\_Library\_2.py#L131](https://github.com/rmusser01/tldw/blob/9effd1865d2e6dedc57b306c511a25b21bc6f940/App_Function_Libraries/RAG/RAG_Library_2.py#L131)",2024-11-03 09:05:30,28,https://www.reddit.com/r/LocalLLaMA/comments/1girn7t/tldw_open_source_notebooklm_sharing_a_tool_ive/
+1gir1by,Is smollm only 8k context?,"Man, it works beautifully for my needs, but that context is just way too short. Any way to bump that to 128K?",2024-11-03 08:39:37,3,https://www.reddit.com/r/LocalLLaMA/comments/1gir1by/is_smollm_only_8k_context/
+1giqxph,"🚀 Analyzed the latency of various TTS models across different input lengths, ranging from 5 to 200 words!",,2024-11-03 08:35:18,100,https://i.redd.it/5xis63lvrpyd1.png
+1giqgck,"My Experience: Long Time Techie, First Time Local Model Execution (GPT4ALL)","Few things:  I've been in IT professionally (top 3 firms) for 35 years.  I've been doing geeky stuff for 45 years.  Let that sink in.  Ok, I'm not that old, but the majority of you reading this post won't appreciate dial-up modems, blue-boxing the local payphones or social engineering a sitting president with a nuke warning - while mounted on a Huffy because I couldn't drive yet (and the legal limit was 14 for a learners permit).
+
+That being said, I can say this: I'm impressed.  But also horrified.
+
+**PROS**:
+
+1. The tech is smooth and modern - what's to hate?  (I do have an i9-11xxx with 64GB DDR4, fast NVMe and a 2080 super).
+2. The implementation is crisp and aligned with industry trends (RAG, popular model selection and more!)
+3. The experience is moderate in terms of learning curve.  My main holdbacks were the 'options', and it's like trying to explain Air-Fuel Ratios to someone who's been working on bicycles their entire life.  Gonna take a second or two, and I'm still only 10% into what I think I know, which means I know precisely squat.  Lots to learn!
+
+**CONS**:
+
+*Safety*.
+
+Safe - how do you keep a hammer safe?  A hammer can be used to both build a house and unalive a person.  I may do both in a 'shit hits the fan situation', but maybe I don't have a hammer and only 12ga shotgun shells, and a horde of zombies are my door?
+
+  
+I need to be able to research ANYTHING ... in a potential scenario where I'd like to do something illegal according to normal, customary laws in my supposed jurisdiction.  However, that exact 'thing' I wish to research, is considered 'allowed' in times of crisis or national emergency.
+
+  
+While I wish I could lawyer up more (IANAL), I definitely think laws preside and are in effect during 'normal' circumstances.  But when those circumstances \[requiring knowledge\] occur - I won't be very pleased and forgiving if the LLM in which I'm asking questions to save my life or that of someone else - decides I'm flirting with morals.
+
+Examples:
+
+* General, Run of the Mill Extended Beyond 60 Days SHTF \[*morphine from poppies, where to find antibiotics*\]
+* Local Supernova / Solar Flare X99 \[*nuclear gamma shielding, how to build a tester*\]
+* COVID.next \[*ivermectin information and covid relationship and treatment options*\]
+* I AM Legend lion-style attacks \[*expedient firearms and how to defend your yard with booby traps*\]
+* Clearing roads after flooding \[*lower order explosives, and how to make detonators*\]
+
+
+
+Be scared all you want.  Knowledge is power, and in the right hands, it can save lives.  
+
+
+**Proposal / Request for Feedback**:
+
+(for GPT4ALL, at least)
+
+A guard-rail free mode?  If the issue of subpoena arises, a download to the Guardrail Free version can be audited, and provided upon proper court subpoena.   The data is incredibly benign, and of no more risk than that of GitHub being breached by a bad actor and all of our emails being (re-re-re-sold) on the darkweb.
+
+
+
+...
+
+C'mon for f's sake - this is 2024.  We're not luddites, and knowledge cannot be siphoned.
+
+
+
+# ""The wise man is like a river that flows freely, sharing its waters with all.""
+
+
+
+\- The Instructions of Shuruppak - 3000 BCE
+
+",2024-11-03 08:14:39,0,https://www.reddit.com/r/LocalLLaMA/comments/1giqgck/my_experience_long_time_techie_first_time_local/
+1giozl9,"Speaking with your local LLM with a key press on Linux. Speech to text into any window, most desktop environments. Two hotkeys are the UI.","Linux users who want snappy, low-resource speech-to-text input and local LLM answer generation that are both available to paste in any window and spoken back,  check out [BlahST on Github](https://github.com/QuantiusBenignus/BlahST).
+
+Uses fast, optimized system tools and shell built-ins (no Python, no JS) to orchestrate whisper.cpp (or [whisperfile](https://huggingface.co/Mozilla/whisperfile) or whisper.cpp server), local llama.cpp (or [llamafile](https://github.com/Mozilla-Ocho/llamafile) or llama.cpp server) and [Piper TTS](https://github.com/rhasspy/piper), to input speech or interact with an LLM, in a UI-less fashion, triggered only by a keyboard hotkey.
+
+A demo (please, unmute. More videos in repo):
+
+[In the above video, the audio starts with the system announcing screen-casting \(my GNOME extension \[\\""Voluble\\""\]\(https:\/\/github.com\/QuantiusBenignus\/voluble\) speaks out-loud all GNOME desktop notifications\), followed by multiple turns of speech input\/recognition. Demonstrated at the end is one of the \\""AI functions\\"" which uses the text transcribed by BlahST \(whisper.cpp\), formats it into a LLM prompt and sends it to a local multilingual LLM \(using llama.cpp or llamafile\) which returns the Chinese translation as text and also speaks it using a neural TTS. Orchestrating this from the command line with lean executables leaves the system surprisingly snappy \(From the video you can see that the PC barely breaks any sweat - temperatures remain low-ish.\)](https://reddit.com/link/1giozl9/video/k5381oka5pyd1/player)
+
+Lean and mean, still WIP. (Demo system is a previous gen. Ryzen w. RTX3060, CUDA kernels used with llama.cpp cli (\~34 tok/s with gemma-9b-Q6) and whisper.cpp server. \~90x real time factor on speech inference.)",2024-11-03 07:10:26,44,https://www.reddit.com/r/LocalLLaMA/comments/1giozl9/speaking_with_your_local_llm_with_a_key_press_on/
+1gindy1,Looks like Intel Arrow Lake can support 4 DIMMs @ up to 6400 speeds,"After searching through a few boards, it looks like Arrow Lake can do 4 Dimms @ 6400.  For an ASrock example, see below - select vendor ""Corsair"", and there is a 24GB per DIMM options @ 6400.  Crucial and ADATA have 48GB ""4 channel"" options @ 5600.
+
+[https://www.asrock.com/mb/Intel/Z890%20Taichi/index.asp#MemoryARLK](https://www.asrock.com/mb/Intel/Z890%20Taichi/index.asp#MemoryARLK)
+
+A quick search on ASUS for an ""affordable"" board shows 4x16GB @ 6000 speeds:
+
+[https://www.asus.com/us/motherboards-components/motherboards/prime/prime-z890m-plus-wifi/helpdesk\_qvl\_memory?model2Name=PRIME-Z890M-PLUS-WIFI](https://www.asus.com/us/motherboards-components/motherboards/prime/prime-z890m-plus-wifi/helpdesk_qvl_memory?model2Name=PRIME-Z890M-PLUS-WIFI)
+
+Another ASUS board supports 4x16GB @ 6600, though there's only a QVL for 4x32GB @ 5200:
+
+[https://www.asus.com/us/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-pro-wifi/helpdesk\_qvl\_memory?model2Name=TUF-GAMING-Z890-PRO-WIFI](https://www.asus.com/us/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-pro-wifi/helpdesk_qvl_memory?model2Name=TUF-GAMING-Z890-PRO-WIFI)
+
+Anyway just wanted to pass along that we may see ""certified"" 6400+ speed 4 DIMM setups become common with Arrow Lake (Core Ultra 200 series).   An x86 way to have 192GB-256GB (when DIMMs are available) on a standard desktop at reasonable speed. ",2024-11-03 05:55:51,27,https://www.reddit.com/r/LocalLLaMA/comments/1gindy1/looks_like_intel_arrow_lake_can_support_4_dimms/
+1gin6jd,My LLM developer side project. Any recommendations on what local models might work with this?,"Github: [https://github.com/Nero7991/devlm](https://github.com/Nero7991/devlm)
+
+It allows LLM to take actions (edit files, run processes and cmd, etc) and provides outputs to due that action. Also, provides dynamic context related to a given project. I'm currently using the Claude Sonnet 3.5 as the LLM. I'd really like to know if any local LLMs would be this good. Currently, the issues seem to be  the needle in a haystack problem where it ignore certain key points in the previous actions and just general lack of advanced reasoning (maybe this could be amplified due to the needle in a haystack problem). I'd love your thoughts. I've tried llama 3.1 8b and it does not do well at all but a coding/devops specific larger model might be much better I guess. Any recommendations?",2024-11-03 05:46:03,6,https://www.reddit.com/r/LocalLLaMA/comments/1gin6jd/my_llm_developer_side_project_any_recommendations/
+1gin2y0,LLM 4 GPUs rig stability problem,"I have remote PC which I usually access by SSH. (I made a post about benchmarking it when it only had 2 GPUs - [https://www.reddit.com/r/LocalLLaMA/comments/1erh260/2x\_rtx\_3090\_threadripper\_3970x\_256gb\_ram\_llm/](https://www.reddit.com/r/LocalLLaMA/comments/1erh260/2x_rtx_3090_threadripper_3970x_256gb_ram_llm/) )   
+  
+I will repeat shortly so no one has to visit another link.
+
+My motherboard is Gigabyte TRX40 Designare. It has 4 2-slot-width PCIe slots, x16-x8-x16-x8. Parts are (everything except RAM and some PSUs is used, tried to stay on budget):
+
+* 2x3-slot EVGA RTX 3090 (default power limit 350W, never exceeds 275W)
+* 2x2 slot ASUS RTX 3090 Turbo,
+* 1 PCIe riser cable (Lian Li 60cm, PCIe 3.0 x16).
+* daisy-chained PSUs, 1500W and 2000W capable
+* Threadripper 3970X
+* 8x32 GB of DDR4 RAM
+* NVMe 2TB disk (moved to the slot connected to motherboard, in order to free some PCIe lanes for GPUs, just in case)
+
+In BIOS, I have
+
+* Above 4G coding enabled, 48 bits
+* Resizable BAR enabled
+* CSM support disabled (didn't boot last time I checked with that)
+* PCIe set to 3.0 (won't boot otherwise with PCIe resources error BIOS boot code)
+
+The system does not simply boot. GPU->PCIe slots configuration when it at least boots to the state I can SSH into it is
+
+* \------ x16 RTX 3090 Turbo
+* \------ x8  RTX 3090 Turbo
+* \------ x16 PCIe riser cable -> RTX 3090
+* \------ x8 RTX 3090 (it is 3-slot, so this must sit here to not cover any slots - I can interchange anything in slots above however)
+
+This system works fine with 2 GPUs, with some tricks it works with 3 GPUs, although I already have to downgrade PCIe to 3.0.
+
+The problem:
+
+sometimes it boots with all 4 GPUs, then I see 'GPU disconnected/lost from bus' error in dmesg, and there are just 2 GPUs. Sometimes I see 2 GPUs visible at the time of [network.target](http://network.target) passed in systemd (I wrote systemd service to check), one RTX 3090 and one RTX 3090 Turbo, not sure from which slots (I identify them by their max default power in nvidia-smi).
+
+Each of them has idle power (whether 4 or 2 are loaded) at 100W-120W level. Two of RTX 3090 Turbo, which are close in top slots, get temperature of about 70 C in a minute or two just with that. Not sure if this is related, because when they work in tandem (only Turbos), they reach even 90 C without any problem.
+
+Sometimes time before system boots up is exceedingly long - there is some long shutdown happening.
+
+What I tried unsuccessfully:
+
+* limiting power
+* setting higher fan speed manually
+* limiting clock
+* playing with GRUB command line in /etc/default/grub (adviced by Claude AI, don't laugh at me, I was kinda desperate)
+* playing with /etc/modprobe.d/nvidia.conf (adviced by Claude AI)
+* understanding PCIe lanes map to devices (which I guess is useful, Claude AI taught me the command)
+
+What I am going to try based on my reading from internet:
+
+* install older NVidia driver
+* disabled Resizable BAR (it should mostly be used for gaming)
+* disable power states of Threadripper (this is probably causing power spikes)
+* try to move PCIe riser cable to 1st or 2nd slot (is it will be first, all 3 GPUs will be close, pity for their temps)
+* enable CSM again
+
+I am now trying driver reinstall, waiting for reboot to finish.
+
+Any help appreciated...",2024-11-03 05:41:03,5,https://www.reddit.com/r/LocalLLaMA/comments/1gin2y0/llm_4_gpus_rig_stability_problem/
+1gim74q,Current SOTA model for dependency parsing?,"Hi there, I'm struggling to understand which NLP task I need to tackle my problem.
+
+I don't need nothing complicated, basically I have a search engine that will just output a simple string of max 30 words.
+
+From this, I need to understand if the original keyword used for the search, is really meaningful.
+
+Example with ""knife"" as keyword:
+
+* knife to cut bread
+* soap to wash knife
+
+In the first case, the subject is knife, in the second is soap; both has knife and I need to narrow the decision to a simple true/false when knife is the subject.
+
+Searching here and there, dependency parsing popped and seems the right way... Yet, I was wondering if that's true and/or if there's something better to accomplish the task via LLM (that is not BERT based thing, albeit I'm open to everything), also because even simplest example with Spacy is failing miserably - but probably it's me, I know that; yet my original question stand still.
+
+Can you kindly help me understand?",2024-11-03 04:54:43,4,https://www.reddit.com/r/LocalLLaMA/comments/1gim74q/current_sota_model_for_dependency_parsing/
+1gijddh,Combining GOFAI with LLMs?,"I was playing around with exploding RAG chunks into lists of propositional clauses and checking for consistency, contradictory information etc and I stumbled on BDI as well as Peter Gardenfors's paper on Belief Revision.
+
+
+Given that the belief revision model assumes beliefs being stored as simple sentences (as do some other GOFAI approaches), is anyone testing out these GOFAI ideas with LLMs (LLMs + formal/propositional logic)?",2024-11-03 01:47:54,4,https://www.reddit.com/r/LocalLLaMA/comments/1gijddh/combining_gofai_with_llms/
+1giicjl,Best (ideally uncensored) Long Context Model (128k) ?,"I've been using Cohere so far, and wanted to try out some alternatives.",2024-11-03 01:27:52,12,https://www.reddit.com/r/LocalLLaMA/comments/1giicjl/best_ideally_uncensored_long_context_model_128k/
+1giib22,Seeking advice on creating an impactful LLM/RAG demo for management,"I'm preparing a demonstration of LLM capabilities for our management team, focusing on two use cases:
+
+* Competitive product analysis
+* Market gap identification for new product development
+
+Technical context:
+
+* Working with a modest product catalog (30-50 items for the demo)
+* Need to standardize disorganized product data into a unified format
+* Planning to use Langflow workflows for visualization and workflow explanation
+
+Questions:
+
+* What's the optimal document format for RAG implementation? (Currently considering just nicely formatted .md for flexibility in chunking)
+* Any suggestions to ensure a strong ""wow factor"" in the demo for management?
+* Any alternatives to Langflow that might be better for a simple demo?
+
+I'm experienced with LLM development but looking to create something that will impress management, and shows them that I'm competent with LLM's.",2024-11-03 01:24:30,2,https://www.reddit.com/r/LocalLLaMA/comments/1giib22/seeking_advice_on_creating_an_impactful_llmrag/
+1gii87n,Deepeval api,Api wrapper around deepeval for those who doesnt want to add the package directly to an application,2024-11-03 01:18:21,3,https://github.com/TheCodingSheikh/deepeval-api
+1gii24g,MMLU-Pro scores of small models (<5B),"Note that there are 10 options in each question, so the random guessing score is ~10%.",2024-11-03 01:04:59,156,https://i.redd.it/dbqap2z19nyd1.jpeg
+1gihnet,What happened to Llama 3.2 90b-vision?,"No one seems to talk about it any. It's not on hugging chat, it is not on lmsys arena. Seems to have just faded out of relevance",2024-11-03 00:32:45,67,https://www.reddit.com/r/LocalLLaMA/comments/1gihnet/what_happened_to_llama_32_90bvision/
+1gigfxn,Has anyone bought insurance for their gear?,"I'm looking to spend more than my car on a system and was curious about things like fire, theft, flooding, earthquake etc insurance.  Any recommendations or tips would be appreciated.  (New York area)",2024-11-02 23:01:03,1,https://www.reddit.com/r/LocalLLaMA/comments/1gigfxn/has_anyone_bought_insurance_for_their_gear/
+1gic7v1,Benchmarked 3090s to find the most optimized power configuration,"I saw the post about optimal power configs a few days ago and decided to go ham with it, so here are my findings:
+
+# Test Setup:
+
+I'm running dual 3090s Turbos in pcie4.0x8 for each card running Qwen 32b at 6\_K\_L at 32k ctx on Ollama. On an optimized setup, tweaking power and core/memory offsets to see how efficiently I could push these GPUs for maximum output.
+
+The test was done using a custom script that ran over 2000 tests (\~20hrs) primarily focused on finding the sweet spot between performance and efficiency, and I monitored parameters like power draw, temperature, and processing throughput.
+
+Script originally ran a broad sweep to find the best broad configurations and then ran fine-grained tests to discover the best overall configurations. Each test configuration was performed twice and then averaged to help eliminate variations.
+
+Prior to the findings, I suspect that either the script or my testing methods errored in the memory configs but I will still continue to test further as lower memory clocks honestly don't track the way I thought they should. Ill probably rerun the tests once I resolve the possible memory offset issue or if I can discover why slower memory clocks are producing better numbers.
+
+I will release the script at some point, but I need to modify it a bit more.
+
+Starting broad sweep configuration: (start, end, step)  
+initial\_power = (100, 350, 50)
+
+initial\_core = (1000, 2000, 200)
+
+initial\_memory = (1000, 10000, 1000)
+
+# Key Findings:
+
+After analyzing the data, here's a quick breakdown:
+
+https://preview.redd.it/oojztvn8blyd1.png?width=2750&format=png&auto=webp&s=2cce8b5967ac18a59a11801058ac5babaef91030
+
+1. **Most Efficient Configuration**: This setup drew around 74w per card (pulled from nvidia-smi), kept temperatures around 57°C, and hit a solid 9.82 total tokens/second (total tokens per second is based on, input and output time not just output time, so time to first token is added to the overall efficiency calculation).
+   * **Power Limit**: 252W
+   * **Core Clock**: 1310Mhz
+   * **Memory Clock**: 2650MHz
+   * **Efficiency**: 0.132 (best achieved)
+2. **Efficiency vs. Power Settings**:
+   * Higher efficiency was generally found in the mid-power limit range (240-260W) and with moderate core/memory offsets.
+   * Power draw and temperature were relatively stable across configurations, but pushing too high on the memory offset didn’t yield much additional efficiency and only added heat.
+3. **Plot Visuals**:
+   * Scatter plots showing **Efficiency vs. Power Limit/Core Offset/Memory Offset** and **Temperature vs. Power Draw** (with efficiency as color coding). The results gave a clear visual on which configurations hit the sweet spot.
+
+# TL;DR:
+
+Using Ollama with 2 x 3090s, I found that dialing in around 252W power, 1310 core, and 2650 memory achieved the best balance of efficiency and performance without pushing temps too high.
+
+remember the silicon lottery, your cards may be better or worse in these results.
+
+
+Edit:
+
+To give a point of reference for how I calculate total tokens per second, Llama.cpp (ollama) with just calculating response tokens and not taking into account prompt processing and other calculation times.
+
+25.2 t/s at 252w (optimized config)
+
+26.6 t/s at 350w (no config)
+
+~26t/s is about normal for my 2x3090s with llama.cpp (ollama)",2024-11-02 18:47:26,87,https://www.reddit.com/r/LocalLLaMA/comments/1gic7v1/benchmarked_3090s_to_find_the_most_optimized/
+1gibs90,A question to image based llm computer interface developers.,"I noticed the new Claude computer use demo primarily utilizes mouse movement to navigate computer elements on desktop PCs. While I can't speak for linux, why don't the models use TABing instead to navigate elements on Windows systems? On webpages tabbing allows users to cycle through every actionable element on a page, highlighting the selected element. Keyboard shortcuts with arrow keys and enter can navigate menus. So why is mouse movement with pixel counting considered the default method when the others would theoretically be faster and less error prone?",2024-11-02 18:24:20,2,https://www.reddit.com/r/LocalLLaMA/comments/1gibs90/a_question_to_image_based_llm_computer_interface/
+1giadgu,Why don't any of the big AI companies support a RAG solution?,"I've been working with a local 8b network + RAG for personal projects. It's genuinely performing better than the newest ChatGPT for recall/information stuff by an actual mile for the data I care about.
+
+Why do none of the AI services offer this? It doesn't seem to be a performance thing you can chunk a book up into a RAG database in less time than it takes to blink an eye on consumer hardware, and I haven't even bothered measuring similarity search because it's so fast in comparison to inference.
+
+It's MASSIVELY useful. You can throw a manual, encyclopedia, code etc pretty much any non-fiction book into a RAG database and get actual cited answers. Compare this with ChatGPT where I have to a) hope it even knows about the thing before it's cut off b) hope it's training included enough of that thing it doesn't just lie.
+
+I will say it's not as nice with fiction because it doesn't seem like the RAG can capture the abstract concepts you might ask about a book.",2024-11-02 17:11:57,186,https://www.reddit.com/r/LocalLLaMA/comments/1giadgu/why_dont_any_of_the_big_ai_companies_support_a/
+1gi9e5f,How good is llama 3.2 3b at RAG,"I have a few pdfs I want to feed llama 3.2 I've found while researching a topic and I'm wondering how well you've guys got it to run, it's continuity etc, thanks",2024-11-02 16:24:58,5,https://www.reddit.com/r/LocalLLaMA/comments/1gi9e5f/how_good_is_llama_32_3b_at_rag/
+1gi8evj,Is there a way to constrain the token output of an LLM?,"Okay so say I wanted to give an LLM a list of things:
+
+1 Apples  
+2 Oranges  
+3 Bananas
+
+And I want it to respond to questions about these with ONLY the leading index token.
+
+""What fruit is yellow?"" ""3""
+
+Is there some way to constrain the LLM to just picking the most likely token from a list of options? I have a bunch of code/books in RAG locally and I want it to respond by choosing excerpts that answer the question.
+
+The reason I don't use RAG directly is because I find the LLM is waaay better at looking at the RAG outputs and finding which one actually matches the question better, where as RAG just kinda gets you 'in the neighborhood', and the most similar entry might not actually answer the question.",2024-11-02 15:38:44,6,https://www.reddit.com/r/LocalLLaMA/comments/1gi8evj/is_there_a_way_to_constrain_the_token_output_of/
+1gi7xl2,"What are some top ""Judge""/Verification tuned models?","There's a class of model finetuned to judge whether some text meets certain criteria.
+
+For instance:
+
+https://huggingface.co/flowaicom/Flow-Judge-v0.1
+
+https://huggingface.co/learn/cookbook/llm_judge
+
+What are the top models tuned for this task?",2024-11-02 15:15:59,5,https://www.reddit.com/r/LocalLLaMA/comments/1gi7xl2/what_are_some_top_judgeverification_tuned_models/
+1gi7rw2,Best way to run semi-local with a groq-like service?,"Not a developer. What I would like to accomplish is high performance with modern and large models. I want an easy gui like lm studio or something at least familiar to an OpenAI interface. I don’t want to upload files and content to public services like openai but I am not so concerned that I don’t want to use something like groq
+
+Does this solve the local computer performance problem? If so why doesn’t everyone do this, it doesn’t look expensive if I’m understanding it all correctly? If an m4 max laptop is thousands of dollars, it would take a long time to consume that in api cost? ",2024-11-02 15:08:16,0,https://www.reddit.com/r/LocalLLaMA/comments/1gi7rw2/best_way_to_run_semilocal_with_a_groqlike_service/
+1gi761h,best RAG architecture for querying code with codellama 7B?,Is there anyone who can recommend the latest most performing RAG architecture for querying code ?,2024-11-02 14:40:10,0,https://www.reddit.com/r/LocalLLaMA/comments/1gi761h/best_rag_architecture_for_querying_code_with/
+1gi6viu,Uncensored Instruct Recommendations?,"I'm looking for a model that can do well with instruction, but I need it to be uncensored or at least one that won't clam up with NSFW material. Not looking for roleplay or anything like that, just want mostly summarization of material, some of which is NSFW. 
+
+Any ideas?
+
+Thanks. ",2024-11-02 14:26:29,11,https://www.reddit.com/r/LocalLLaMA/comments/1gi6viu/uncensored_instruct_recommendations/
+1gi634z,Are You Tired of ChatGPT Hallucinating and Weak Brainstorming? Here’s a Solution!,"Hi everyone! I’ve created **Brainstormers** – a straightforward, open-source, LLM-powered tool using LangChain to enhance your brainstorming. Unlike ChatGPT, this app guides you through structured brainstorming techniques like Mind Mapping, Reverse Brainstorming, SCAMPER, and more, helping you get focused, high-quality ideas.
+
+If you’re looking for a reliable way to brainstorm without the usual hiccups, check it out here: [GitHub Repository](https://github.com/Azzedde/brainstormers).
+
+As I'm still in my journey of learning, I would really appreciate some feedback from all the community, what should I improve and is the idea itself good ?",2024-11-02 13:49:59,38,https://www.reddit.com/r/LocalLLaMA/comments/1gi634z/are_you_tired_of_chatgpt_hallucinating_and_weak/
+1gi5c6u,Windows vs Macbook for helpful llms?,"I understand that macbooks can load bigger models, which generally should be more accurate and helpful in general tasks like code generation, editing writing, drafting documents etc. However the response won't be as fast as using the same model in a Windows laptop with an rtx card (if it fits in the vram). 
+
+For me, I prefer Windows and find the macbooks don't suite me (the chassis or trackpad holds static charge or something else which causes hand numbness, tremors, and pain). Flat keyboard deck also = bad ergonomics.
+
+I use gpt4 to help in code generation and learning machine learning etc, but value privacy and control over my documents. Hence why I want to use a local model.
+
+How big of a difference are we talking as far as capable models on a well-speced Windows machine like the Asus proart p16 vs a macbook pro with 30-40gb of ram? Like is there a point of diminishing returns that starts within the scope of models that can fit into mobile rtx cards? Or do the good models all require more vram than what can be used locally on these?
+
+Thanks!",2024-11-02 13:15:53,3,https://www.reddit.com/r/LocalLLaMA/comments/1gi5c6u/windows_vs_macbook_for_helpful_llms/
+1gi4bu1,How much ram to run llama3.1 70b?,"I want to use my soon to arrive miniPC + eGPU setup as a host for llama3.1 70b and eventually other similarly sized LLMs.
+
+The device has 32GB DDR5 5600 (crucial) with upgradability to 96GB ram.
+
+Will there be a noticeable difference in speed and performance if I upgrade?
+
+Other specs:
+- AMD Ryzen 7 8845HS
+- eGPU is the XFX RX 6750XT QICK 319 hooked up to the miniPC via oculink OCUP4v2
+
+Grateful for advice 🙏 ",2024-11-02 12:30:22,14,https://www.reddit.com/r/LocalLLaMA/comments/1gi4bu1/how_much_ram_to_run_llama31_70b/
+1gi3oyy,Is it possible to make a model that rearranges itself during inference?,"Basically, to make it learn and remember stuff on the go. Switch from the current context processing format into making it ""form memories"" with its weights like the human brain does?",2024-11-02 12:01:14,31,https://www.reddit.com/r/LocalLLaMA/comments/1gi3oyy/is_it_possible_to_make_a_model_that_rearranges/
+1gi3l2q,Llama 3.1 70B finetune anecdotes on production data processing (2.5B tokens / ~150k requests),"Hey all, I run a website that extracts data from HTML, and part of the pipeline uses an LLM to return data from the HTML in JSON format. I'm a small operation, but larger than most hobby projects, so I figured I'd share my results testing several versions of Llama 3.1 70B over the past month.
+
+Here are the results.
+
+* Llama 3.1 70B instruct - 72% error rate
+* Nemotron 70B instruct - 65% error rate
+* Dracarys - 38% error rate
+* Dracarys2 - 31% error rate
+
+The error rate is an ""all or nothing"" result on 12 datapoints pulled from 120k web pages (split between the models) using the same prompts. A success is any correct exit to the pipeline, where the pipeline either filters the data into stored data or a rejected lot of pages. A failure is any incorrectly collected data or false negative (an incorrectly approved page). I sampled 200 of each LLM's results and manually checked them to determine the rates.
+
+My finding was that for data processing, Dracarys 2 has much better results than more popular open LLMs of the size class. I've also tested proprietary models at lower volumes, and my from-the-hip opinion is it has slightly worse performance than Gemini 1.5 flash and gpt4-o mini for these tasks. Most of its errors related to interpretive issues with unclear data from the pages that would be difficult for a human to figure out. Its a real fine job from abacusai seeing as the model targets code generation, not data processing.
+
+Hopefully this is useful to the community",2024-11-02 11:56:29,74,https://www.reddit.com/r/LocalLLaMA/comments/1gi3l2q/llama_31_70b_finetune_anecdotes_on_production/
+1gi36ce,TIL it's not open source.,,2024-11-02 11:38:02,27,https://www.youtube.com/watch?v=5v72pNaincM
+1gi16zh,Secure desktop sandbox for AI computer use,"Hey!
+
+We created a [secure cloud sandbox with graphical interface](https://github.com/e2b-dev/desktop) made for AI computer use. It's powered by [Firecracker microVM](https://github.com/firecracker-microvm/firecracker).
+
+We're fully open-source [here](https://github.com/e2b-dev/e2b) and [here](https://github.com/e2b-dev/infra).
+
+[Here's the demo](https://github.com/e2b-dev/secure-computer-use) of the secure sandbox use with Claude.
+
+The next step for us is to create a demo with other LLMs/combination of LLMs and add video streaming.
+
+You can fully customize the sandbox and install any apps you want.
+
+[Secure computer use](https://reddit.com/link/1gi16zh/video/n7apqe73tiyd1/player)",2024-11-02 10:08:42,52,https://www.reddit.com/r/LocalLLaMA/comments/1gi16zh/secure_desktop_sandbox_for_ai_computer_use/
+1gi102k,Introducing Cascade of Semantically Integrated Layers (CaSIL): An Absurdly Over-Engineered Thought/Reasoning Algorithm That Somehow Just… Works,"So here’s a fun one. Imagine layering so much semantic analysis onto a single question that it practically gets therapy. That’s CaSIL – Cascade of Semantically Integrated Layers. It’s a ridiculous (but actually effective) pure Python algorithm designed to take any user input, break it down across multiple layers, and rebuild it into a nuanced response that even makes sense to a human.
+
+I have been interested in and experimenting with all the reasoning/agent approaches lately which got me thinking of how I could add my 2 cents of ideas, mainly around the concept of layers that waterfall into each other and the extracted relationships of the input.
+
+The whole thing operates without any agent frameworks like LangChain or CrewAI—just straight-up Python and math. And the best part? CaSIL can handle any LLM, transforming it from a “yes/no” bot to something that digs deep, makes connections, and understands broader context.
+
+How it works (briefly):
+
+1. Initial Understanding: Extract basic concepts from the input.
+
+
+2. Relationship Analysis: Find and connect related concepts (because why not build a tiny knowledge graph along the way).
+
+
+3. Context Integration: Add historical and contextual knowledge to give that extra layer of depth.
+
+
+4. Response Synthesis: Put it all together into a response that doesn’t feel like a Google result from 2004.
+
+
+The crazy part? It actually works. Check out the pure algo implementation with the repo. No fancy dependencies,, and it’s easy to integrate with whatever LLM you’re using.
+
+https://github.com/severian42/Cascade-of-Semantically-Integrated-Layers
+
+Example output: https://github.com/severian42/Cascade-of-Semantically-Integrated-Layers/blob/main/examples.md
+
+
+EDIT FOR CLARITY!!! 
+
+Sorry everyone, I posted this and then fell asleep after a long week of work. I'll clarify some things from the comments here.
+
+1. What is this? What are you claiming?: This is just an experiment that actually worked and is interesting to use. I by no means am saying I have the 'secret sauce' or rivals o1. My algorithm is just a really interesting way of having LLM s 'think' through stuff in a non-traditional way. Benchmarks so far have been hit or miss
+
+2. Does it work? Is the code crap?: it does work! And yes, the code is ugly. I created this in 2 days with the help of Claude while working my day job.
+ 
+
+3. No paper? Fake paper?: There is no official paper but there is the random one in the repo. What is that? Well, part of my new workflow I was testing that helped start this codebase. Part of this project was to eventually showcase how I built an agent based workflow that allows me to take an idea, have a semi-decent/random 'research' paper written by those agents. I then take that and run it into another agent team that translates it into a starting code base for me to see if I can actually get working. This one did.
+
+
+4. Examples?: There is an example in the repo but I will try and put together some more definitive and useful. For now, take a look at the repo and give it a shot. Easy set up for the most part. Will make a UI also for those non coders 
+
+
+Sorry if it seemed like I was trying to make great claims. Not at all, just showing some interesting new algorithms for LLM inference ",2024-11-02 10:00:21,152,https://www.reddit.com/r/LocalLLaMA/comments/1gi102k/introducing_cascade_of_semantically_integrated/
+1gi0tj8,Adjusting fan curves for GPUs P102,"I have a P102 GPU which I'm using for LLM inferencing under Linux. I have a version which has built-in fans which ramp up as the GPU gets hot.
+
+However, even when GPU is idle and cool, the fans spin at a minimum of ~45% speed and are annoying.
+
+Is there a good way to adjust fan curves on a GPU?",2024-11-02 09:52:11,4,https://www.reddit.com/r/LocalLLaMA/comments/1gi0tj8/adjusting_fan_curves_for_gpus_p102/
+1gi0kns,NeuroSandboxWebUi,"Hello everyone. I would like to share my application code built on the gradio interface for using almost all open source neural networks to generate your content. There are also many different additional options. The code is gradually being improved and supplemented, but in general the main functionality already works fine. I will be glad if you try it and give your assessment on github. Thanks in advance!
+
+https://github.com/Dartvauder/NeuroSandboxWebUI",2024-11-02 09:41:03,7,https://www.reddit.com/r/LocalLLaMA/comments/1gi0kns/neurosandboxwebui/
+1ghx3ud,"Last Week in Medical AI: Top LLM Research Papers/Models (October 26 - November 2, 2024)","[Last Week in Medical AI: Top LLM Research Papers\/Models \(October 26 - November 2, 2024\)](https://preview.redd.it/5105y6vkvhyd1.jpg?width=1386&format=pjpg&auto=webp&s=e3097fcc8cc8b141e5419c62aa826093e268844a)
+
+**Medical AI Paper of the Week:**
+
+* Google presents, MDAgents: An Adaptive Collaboration of LLMs for Medical Decision-Making
+   * This paper introduces MDAgents, a multi-agent framework that assigns collaborative structures to LLMs for complex medical tasks, mimicking real-world medical decision-making.
+
+**Medical LLM & Other Models:**
+
+* Matchmaker: Schema Matching with LLMs
+   * This paper introduces Matchmaker, a compositional language model program for schema matching that addresses the challenges of structural and semantic heterogeneity in data sources.
+* UltraMedical: Specialized Biomedical Models
+   * This paper introduces UltraMedical, a collection of high-quality manual and synthetic datasets with preference annotations across multiple LLMs for biomedical applications.
+* ZALM3: Vision-Language Medical Dialogue
+   * This paper introduces ZALM3, a zero-shot strategy for improving vision-language alignment in multi-turn multimodal medical dialogues, addressing the challenge of poor-quality patient-provided images in online consultations.
+* EchoFM: Echocardiogram Foundation Model
+   * This paper introduces EchoFM, a foundation model for echocardiography videos, using a self-supervised learning framework with spatio-temporal consistent masking and periodic-driven contrastive learning, pre-trained on over 290,000 videos (20 million frames) across 26 scan views and different imaging modes.
+
+**Frameworks and Methodologies:**
+
+* FEDKIM: Federated Medical Knowledge Injection
+* Flex-MoE: Flexible Modality Combination
+* MAISI: Synthetic Medical Imaging
+* Cough-E: Edge Privacy Detection
+* MassSpecGym: Molecule Identification
+
+**Medical LLM Applications:**
+
+* DiaMond: Multi-Modal Dementia Diagnosis
+* LLM-Forest: Health Data Imputation
+* Medical Multimodal Visual Grounding
+* Clinical Evidence Synthesis with LLMs
+
+**Medical LLMs & Benchmarks:**
+
+* Histopathology Models Beyond H&E
+* LLMs in Mental Health Counseling
+* Medical Dataset Reuse Analysis
+
+**AI in Healthcare Ethics:**
+
+* LLMs in Medical Education
+* Medical Exam Question Generation
+* Clinical Knowledge Graph Integration
+
+....
+
+Full thread in detail: [https://x.com/OpenlifesciAI/status/1852685220912464066](https://x.com/OpenlifesciAI/status/1852685220912464066)",2024-11-02 07:01:41,23,https://www.reddit.com/r/LocalLLaMA/comments/1ghx3ud/last_week_in_medical_ai_top_llm_research/
+1ghwdjy,M4 Max - 546GB/s ,"Can't wait to see the benchmark results on this: 
+
+Apple M4 Max chip with 16‑core CPU, 40‑core GPU and 16‑core Neural Engine
+
+""M4 Max supports up to 128GB of fast unified memory and up to 546GB/s of memory bandwidth, which is 4x the bandwidth of the latest AI PC chip.3""
+
+As both a PC and Mac user, it's exciting what Apple are doing with their own chips to keep everyone on their toes.",2024-11-02 06:25:19,288,https://www.reddit.com/r/LocalLLaMA/comments/1ghwdjy/m4_max_546gbs/
+1ghvwsj,llama.cpp Compute and Memory Bandwidth Efficiency w/ Different Devices/Backends,"One of the things that I noticed from my [recent Intel Xe2 iGPU testing with llama.cpp](https://www.reddit.com/r/LocalLLaMA/comments/1gheslj/testing_llamacpp_with_intels_xe2_igpu_core_ultra/) was that theoretical max FP16 TFLOPS and MBW only told a part of the story.
+
+I thought I'd share these numbers since it's pretty interesting to see how TFLOPS and MBW are actually only one part of the equation, and there's a huge variance in t/TFLOP efficiency and MBW efficiency between backends and devices (the CUDA backend looks to be the most optimized for both Ampere and Ada devices):
+
+|Build|Hardware|Backend|FP16 TFLOPS|MBW GB/s|pp512 t/s|tg128 t/s|t/TFLOP|MBW %|
+|:-|:-|:-|:-|:-|:-|:-|:-|:-|
+|b4008|EPYC 9274F|CPU|3.2|460.8|184.61|39.41|58.61|30.45|
+|b4008|Arc 140V|IPEX-LLM|32.0|136.5|656.5|22.98|20.52|59.93|
+|b4008|Radeon 780M|ROCm|16.6|89.6|240.79|18.61|14.51|73.94|
+|b4008|W7900|ROCm|122.6|864|2872.74|95.56|23.43|39.37|
+|b4008|7900 XTX|ROCm|122.8|960|3206.94|102.92|26.12|38.17|
+|b4008|RTX 3050 6GB|CUDA (FA)|13.6|168|1250.59|37.77|92.29|80.04|
+|b4011|RTX 3090|CUDA (FA)|71.0|936.2|6073.39|167.28|85.54|63.61|
+|b4011|RTX 4090|CUDA (FA)|165.2|1008|13944.43|187.7|84.41|66.29|
+|b4011|M2 (10CU)|Metal|7.1|100|185.34|21.67|26.10|77.15|
+|???|M2 (10CU) \^|Metal|7.1|100|179.57|21.91|25.29|78.00|
+|???|M3 Pro (18CU) \^|Metal|12.8|150|341.67|30.74|26.73|72.96|
+|???|M3 Max (40CU) \^|Metal|28.4|400|759.7|66.31|26.75|59.02|
+
+* \^ The M3 Metal numbers are from the [official llama.cpp Apple Silicon performance discussion thread](https://github.com/ggerganov/llama.cpp/discussions/4167), M2 10 CU results closely match my M2 MBA results so I assume they're up to date
+* The rest of the numbers are from tests I ran with very recent builds of `llama.cpp` (b4008-4011) on various Linux systems (Arch, CachyOS, Ubuntu 24.04 TLS)
+* All tests were done with the Q4\_0 quant of [https://huggingface.co/TheBloke/Llama-2-7B-GGUF](https://huggingface.co/TheBloke/Llama-2-7B-GGUF)
+* The pp/tg numbers are generated from `llama-bench`, typically with no additonal options. CUDA runs are with `-fa 1` (which gives a decent boost) for Nvidia cards
+* While max theoretical MBW is pretty straightforward, the max (Tensor FP16) TFLOPS can be trickier (dependent on the actual clock speeds, so they should be treated more as just a ballpark number) - it's worth noting that some listings, like TechPowerUp's TFLOPS numbers can be very misleading since they don't properly account for tensor/vector engines like Tensor cores or XMX, etc. (also CPU depends on vector support, is not so straightforward either - here's a sample of [using o1-preview to sanity check my 3050 and EPYC TFLOPS estimates](https://chatgpt.com/share/6726210e-1100-8012-8953-bedb79f9211b)).
+
+One thing of interest is seeing how efficient in terms of tokens/FP16 TFLOP the CUDA backend is - this applies to Ampere (3rd gen) and Ada (4th gen) tensor cores. I'm pretty sure I'm doing the math right here, I think the CUDA implementation is just that good.
+
+In any case, I figure I'd kick off a thread for future reference, and in case anyone wanted to contribute the numbers for their particular setup. You can just post to the thread and maybe it'll be a fun/useful resource. Suggestions:
+
+* include llama.cpp build # (use the monotonic number, the sha1 is much harder to track)
+* use the same GGUF for easy comparison (Q4\_0 is recommended since every backend supports that)
+* t/TFLOPS is just (`pp512 / TFLOPS`)
+* MBW % is `100 * tg128 / (MBW/3.56) )` (the llama2 q4\_0 is 3.56GB)
+
+UPDATE: I had Claude [make a visualization](https://claude.site/artifacts/f111e143-f9a0-44b2-ae37-e2457b27e525), colored Backend to maybe better illustrate how different HW/backends stack up in terms of compute and memory bandwidth efficiency:
+
+[llama.cpp Backend Compute and MBW Efficiency](https://preview.redd.it/w04nuwfqciyd1.png?width=1258&format=png&auto=webp&s=90c213610170688fc5fad2231a1568833593a651)
+
+",2024-11-02 06:01:37,64,https://www.reddit.com/r/LocalLLaMA/comments/1ghvwsj/llamacpp_compute_and_memory_bandwidth_efficiency/
+1ghvvep,chatbot integration on Xcode and use it as api,,2024-11-02 05:59:53,0,https://ingoampt.com/you-wanna-use-chatgpt-4o-by-tokens-instead-o-buying-monthly-subscription-but-you-do-not-know-how-to-implement-on-mac-xcode-here-we-discuss-how-to-implement-chatgpt-api-on-xcode-on-mac-on-2024-day/
+1ghvs4a,Training Llama 4 on a couple of 100k H100s,,2024-11-02 05:54:53,179,https://www.linkedin.com/posts/ahmad-al-dahle_very-cool-to-visit-one-of-our-data-centers-activity-7257585327089831938-yQav?utm_source=share&utm_medium=member_andro
+1ghv645,"Any idea what is this ""ExSL"" in ""ExSL+ granite-34b-code"" in BIRD-SQL benchmark?","I'm searching for an open source Text-to-SQLs model and found this interesting [BIRD benchmark](https://bird-bench.github.io/), but I am confused about this ""ExSL""!",2024-11-02 05:20:07,2,https://www.reddit.com/r/LocalLLaMA/comments/1ghv645/any_idea_what_is_this_exsl_in_exsl_granite34bcode/
+1ghu7ae,"Paper highlight - OSCAR, stateful agentic control","[https://arxiv.org/abs/2410.18963](https://arxiv.org/abs/2410.18963)
+
+Released last week, it looks like it flew under the radar somewhat.
+
+The paper itself is focused on computer use, but the presented agentic workflow looks good for other applications. It's similar to ReAct approach (and CodeAct), but put into an agentic environment. 
+
+The computer use is even more relevant with recently released [OmniParser](https://github.com/microsoft/OmniParser), exciting!
+
+  
+",2024-11-02 04:18:53,12,https://www.reddit.com/r/LocalLLaMA/comments/1ghu7ae/paper_highlight_oscar_stateful_agentic_control/
+1ghtqay,Is Long Context Finetuning on theses even a good idea?,"I'm trying to figure out my friend's and my masters thesis. The only condition is for us to use a dataset of about 300,000 PhD theses because that gets us a scholarship.
+
+**Idea:**
+
+My thought process so far has been: Large Datasets are good for training/finetuning -> Training is only for big corp -> For finetuning you need labled data -> We can use the Abstract as label for the document -> Finetune on the task of writing Abstracts -> Create some kind of benchmark to measure performance (of other models, too)
+
+**Context and Memory Problem:**
+
+The pdfs are usually 150-300 pages and we expect them to be 100-200K tokens (we can filter out the long ones, 300,000 is way too much anyway)
+
+Now we've researched finetuning a bit and found out the memory requirement scales quadratically by context length. Even when I select QLoRa at [https://rahulschand.github.io/gpu\_poor/](https://rahulschand.github.io/gpu_poor/) the memory requirement is insane. Now Unsloth supposedly enables Long Contexts [https://unsloth.ai/blog/long-context](https://unsloth.ai/blog/long-context) for mortals. The max setup we can get is 8x Nvidia Tesla A30 (24GB).
+
+Does anyone have experience finetuning on such long sequences?
+
+The other issue is that summarization is kind of considered a ""solved problem"" in AI but when we tried Llama3.2 3B on our data it was pretty bad. Will the tuning even improve this performance? If you have any other ideas for scientific use cases of the dataset let me know",2024-11-02 03:46:22,3,https://www.reddit.com/r/LocalLLaMA/comments/1ghtqay/is_long_context_finetuning_on_theses_even_a_good/
+1ghtnb7,[TIP] Speed Up Your Model Loading Times with vmtouch on Linux,"Hey Linux/WSL folks!
+
+If like me you frequently swap between large models during your workflow, consider trying out vmtouch! It’s a handy tool that allows you to precache files into memory, which could reduce GPU loading times significantly.
+
+I personally saw my model loading times cut in half, even though I’m using an NVMe drive. Here’s how you can set it up in just a few commands:
+
+Install vmtouch:
+
+`sudo apt-get install vmtouch`
+
+Cache models into memory:
+
+`# Replace /path/to/model_directory with your model folder paths.`  
+`sudo vmtouch -dl /path/to/model_directory`  
+`sudo vmtouch -dl /path/to/another_model_directory`
+
+For more information, check out the official documentation: [vmtouch documentation](https://hoytech.com/vmtouch/)",2024-11-02 03:40:14,10,https://www.reddit.com/r/LocalLLaMA/comments/1ghtnb7/tip_speed_up_your_model_loading_times_with/
+1ghtl58,[FINAL TEST] Power limit VS Core clock limit efficiency,,2024-11-02 03:35:56,93,https://www.reddit.com/gallery/1ghtl58
+1ghtl2d,Generative AI Scripting by Microsoft,,2024-11-02 03:35:48,58,https://microsoft.github.io/genaiscript/
+1ghsvk3,BitStack: Fine-Grained Size Control for Compressed Large Language Models in Variable Memory Environments,"[Link to the Paper](https://arxiv.org/pdf/2410.23918)
+
+[Github Repo](https://github.com/xinghaow99/BitStack)
+
+>  
+Abstract:  
+Large language models (LLMs) have revolutionized numerous applications, yet their deployment remains challenged by memory constraints on local devices. While scaling laws have enhanced LLM capabilities, the primary bottleneck has shifted from capability to availability, emphasizing the need for efficient memory management. Traditional compression methods, such as quantization, often require predefined compression ratios and separate compression processes for each setting, complicating deployment in variable memory environments. In this paper, we introduce BitStack, a novel, training-free weight compression approach that enables megabyte-level trade-offs between memory usage and model performance. By leveraging weight decomposition, BitStack can dynamically adjust the model size with minimal transmission between running memory and storage devices. Our approach iteratively decomposes weight matrices while considering the significance of each parameter, resulting in an approximately 1-bit per parameter residual block in each decomposition iteration. These blocks are sorted and stacked in storage as basic transmission units, with different quantities loaded based on current memory availability. Extensive experiments across a wide range of tasks demonstrate that, despite offering fine-grained size control, BitStack consistently matches or surpasses strong quantization baselines, particularly at extreme compression ratios. To the best of our knowledge, this is the first decomposition-based method that effectively bridges the gap to practical compression techniques like quantization. Code is available at https://github.com/xinghaow99/BitStack.
+
+
+
+>Deploying large language models locally(e.g. on personal computers or smartphones) is a common
+
+>practice, as it safeguards private data and enables offline functionality. However, the available RAM
+
+>on these devices is often limited and variable, as the total memory capacity is generally small and
+
+>memory usage by other applications can fluctuate(Figure 1a). This variability in available memory
+
+>poses a challenge for deploying LLMs, as they require consistent and substantial RAM resources.
+
+>For example, when more memory becomes available from other applications, users may want to
+
+>use a 4-bit quantized model instead of a 3-bit one for better performance. However, this requires
+
+>reloading the entire model, which may cause significant delays due to limited transmission band-
+
+>width. Additionally, multiple versions of the model at different compression ratios need to be stored
+
+>on the device, and each version requires running a separate compression process in advance, which
+
+>increases the storage burden on the device and requires additional computational resources to run
+
+>separate compression processes. Therefore, a compression strategy that enables dynamic trade-offs
+
+>between memory usage and performance is highly desirable.
+
+tl;dr: This paper introduces a method called BitStack, which is a model compression technique that can dynamically balance memory and performance, for example when more memory is available, it can switch to a higher ""quant"". So it divides the model into blocks and those blocks can be selectively loaded depending on the performance requirements or memory availability. More blocks -> Better performance.",2024-11-02 02:42:56,33,https://www.reddit.com/r/LocalLLaMA/comments/1ghsvk3/bitstack_finegrained_size_control_for_compressed/
+1ghnj1w,What do I miss with 7900 xtx today,"Hi,
+
+Those who now have 7900 XTX what is the biggest problem (compared to nvidia) with the card related to running LLM (not training) ? 
+
+Does 7900 xtx use how much more power when its fully utilized than nvidia 4090? 
+I have heard idle is about 20W with one monitor but what about zero monitors attached? 4090 idle was something like 10W
+
+Does it work with vLLM?
+
+I could get 7900 XtX around 670€ without VAT used. 3090 are cheapest 800€ used and 4090  new 1950 with VAT. Which one to get for interference?
+
+",2024-11-01 20:20:15,9,https://www.reddit.com/r/LocalLLaMA/comments/1ghnj1w/what_do_i_miss_with_7900_xtx_today/
+1ghmq4k,Fine tune or rag?,"So I have a dataset of 300 samples of text mapped to code. That code is limited in the sense that they are some basic lines of codes that are not going to be changed for later inference. To be more precise if I have those 300 lines of code, with their text description, then for inference, we're expecting one of those lines given the parameters provided in the text. For example: `(""print the first index of this string s"", ""print(s[0])"")`, this is just a hypothetical example. What we expect, is an inference for something like: `""display the 0 index of string j""` to give `""print(j[0])""` .
+
+There are two ways to go about this, either to fine-tune an llm, preferably smaller one, while increasing the model complexity if the smaller one works but doesn't capture all of the complexity.
+
+Or, we do RAG, because basically we're doing knowledge here to be memorized, and basically for inference, we're just asking for one of those patterns in the initial dataset, and thus it s more of a knowledge memory. Am I right with this?",2024-11-01 19:36:06,2,https://www.reddit.com/r/LocalLLaMA/comments/1ghmq4k/fine_tune_or_rag/
+1ghm8fg,Best inference engine with Open-WebUI?,"I currently love my current setup with two 3090s and Ollama hooked up to Open-WebUI on nixos, but I keep hearing that ollama is not as great of an inference engine (using inefficient quants, bad default context window size, struggling with multimodal, etc).  What do you all prefer instead for GPU inference instead? Llama.cpp? vllm? ",2024-11-01 19:09:52,1,https://www.reddit.com/r/LocalLLaMA/comments/1ghm8fg/best_inference_engine_with_openwebui/
+1ghlpna,Tell me about how you run your local model.,"I see a couple questions related to local inference details like quantization methods and inference libaries, and I want to learn about how to run local model with more control.
+
+Conceptually I see language model as 1) some weights with 2) some code, but not much about how it works in reality. As of now, I use ollama because of the simplicity, but never quite figure out porting gguf from Huggingface, hence is limited by what's set by ollama.
+
+I want to take a step up for the following reasons,  
+\- see really cool stuff in llama.cpp. The most recent neovim plugin, speculative sampling, and voice chatting with local model from wayback, before chatGPT has a voice mode  
+\- tweak the parameters like the ones in \[text-generation-webui\](https://github.com/oobabooga/text-generation-webui)
+
+I don't want to delve (I can't think of another word) into all the variations of quantization methods and inference libraries. Hence I just want to find some foundation here. How do you run local model? I find below tools frequently show up,  
+\- llama.cpp (including ollama and lm studio)  
+\- Huggingface transformer  
+\- llamafile (not sure about it's current state. I recall its claim 'run model as a file')  
+\- mlc  
+\- vllm  
+\- text-generation-webui (popular among SillyTavern users, supports various quantization methods)",2024-11-01 18:42:12,2,https://www.reddit.com/r/LocalLLaMA/comments/1ghlpna/tell_me_about_how_you_run_your_local_model/
+1ghi029,Could someone explain to me the speed difference between LLM Studio and Python code for the same model?,"Hello there!
+
+I am very new to running LLM locally and I've tried a few things, I've got a pretty decent rig (4090 / 64 GB RAM, a very decent CPU) and I've tried running different versions of Qwen 2.5 instruct to try things out and see what speed I could get out of it.
+
+My first test was using llama-cpp python bindings :  
+
+
+    from llama_cpp import Llama
+    
+    import time
+    import os
+    os.environ['CUDA_LAUNCH_BLOCKING'] = '0'
+    
+    
+    def
+     load_model():
+      model = Llama.from_pretrained(
+          repo_id=""Qwen/Qwen2.5-7B-Instruct-GGUF"",  
+          filename=""qwen2.5-7b-instruct-q2_k.gguf"",
+          n_gpu_layers=-1,  
+          n_ctx=4096,       
+          n_batch=512,     
+          n_threads=6,       
+          main_gpu=0,        
+          verbose=True    
+      )
+      return model
+    
+    
+    def
+     generate_response(model, messages):
+      start_time = time.time()
+      output = model.create_chat_completion(
+          messages=messages,
+          max_tokens=100
+      )
+      end_time = time.time()
+    
+      response = output['choices'][0]['message']['content']
+      time_taken = end_time - start_time
+    
+      # Get token counts from the response
+      input_tokens = output['usage']['prompt_tokens']
+      output_tokens = output['usage']['completion_tokens']
+      total_tokens = output['usage']['total_tokens']
+    
+      # Calculate tokens per second
+      tokens_per_second = output_tokens / time_taken
+    
+      return response, time_taken, tokens_per_second, total_tokens
+    
+    
+    def
+     chat_loop(model):
+      messages = []
+      print(""Chat with the AI. Type 'quit' to exit."")
+      while True:
+        user_input = input(""You: "")
+        if user_input.lower() == 'quit':
+          break
+    
+        messages.append({""role"": ""user"", ""content"": user_input})
+        response, time_taken, tokens_per_second, total_tokens = generate_response(model, messages)
+        messages.append({""role"": ""assistant"", ""content"": response})
+    
+        print(
+    f
+    ""AI: {response}"")
+        print(
+    f
+    ""Generated response in {time_taken
+    :.2f
+    } seconds"")
+        print(
+    f
+    ""Tokens per second: {tokens_per_second
+    :.2f
+    }"")
+        print(
+    f
+    ""Total tokens used: {total_tokens}"")
+        print()
+    
+    
+    if __name__ == ""__main__"":
+      print(""Loading model... This may take a few minutes."")
+      model = load_model()
+      print(""Model loaded. Starting chat."")
+      chat_loop(model)
+    
+    
+    
+
+Which gave me about **7 token/s**
+
+I then tried using LLM Studio, with the exact same model and the exact same quantization (making sure it's Qwen's repository and not Bartowski's version, etc..., it's the exact same model) and with LLM Studio I reach **90 token/s** which is 10+ times faster.  
+  
+Could someone enlighten me as to why there is such a difference between the two? The settings are exactly the same (context size, batch size, full GPU offloading (28 layers out of 28 on LLM Studio and n\_gpu\_layers=-1 in the code) so I am a bit troubled by the differences. 
+
+On a similar note, inside LLM Studio I've also noticed insane differences in terms of token speed for the same model with the same quantization, for instance Qwen/Qwen2.5-7B-Instruct-GGUF Q4\_0 gives me **80 t/s** in LLM Studio but bartowski/Qwen2.5-7B-Instruct-GGUF Q4\_0 gives me **3.5 t/s** in LLM Studio.  
+Why am I seeing such big differences even inside LLM Studio for the same model with the same quanitization? Am I missing something?
+
+Thanks a lot for any insight. Cheers.",2024-11-01 15:41:41,6,https://www.reddit.com/r/LocalLLaMA/comments/1ghi029/could_someone_explain_to_me_the_speed_difference/
+1ghhm0a,"What happened to the ""tree of thoughts"" (ToT) ?","This technique seemed to me to be quite promising for the future, what happened to it? Was it directly implemented in all the AI we know today or has it sunk into oblivion ?",2024-11-01 15:23:10,44,https://www.reddit.com/r/LocalLLaMA/comments/1ghhm0a/what_happened_to_the_tree_of_thoughts_tot/
+1ghgskm,TokenFormer: Rethinking Transformer Scaling with Tokenized Model Parameters - Allows for progressive and efficient scaling without necessitating retraining from scratch.,,2024-11-01 14:44:42,66,https://arxiv.org/abs/2410.23168
+1ghg329,What models would be best on a Pixel 7?,"I'm not super familiar with the smaller models out there. Are there any clear winners that would work decently well on this phone? 
+
+Cheers",2024-11-01 14:13:20,2,https://www.reddit.com/r/LocalLLaMA/comments/1ghg329/what_models_would_be_best_on_a_pixel_7/
+1ghfiby,AMD released a fully open source model 1B ,"Here is their blog post : https://www.amd.com/en/developer/resources/technical-articles/introducing-the-first-amd-1b-language-model.html
+",2024-11-01 13:47:59,903,https://i.redd.it/xuqmkapcrcyd1.png
+1gheslj,Testing llama.cpp with Intel's Xe2 iGPU (Core Ultra 7 258V w/ Arc Graphics 140V),"I have a Lunar Lake laptop (see my [in-progress Linux review](https://github.com/lhl/linuxlaptops/wiki/2024-MSI-Prestige-13-AI--Evo-A2VM)) and recently sat down and did some testing on how llama.cpp works with it.
+
+* Chips and Cheese has the [most in-depth analysis of the iGPU](https://chipsandcheese.com/p/lunar-lakes-igpu-debut-of-intels) which includes architectural and real world comparisons w/ the prior-gen Xe-LPG, as well as RDNA 3.5 (in the AMD Ryzen AI 9 HX 370 w/ Radeon 890M).
+* The 258V has 32GB of LPDDR5-8533, which has a theoretical maximum memory bandwidth of  136.5 GB/s. Chips and Chesee did some [preliminary MBW testing](https://chipsandcheese.com/i/149978169/cache-and-memory-bandwidth) and found actual throughput to be around 80 GB/s (lower than Strix Point), but MBW test is hard...
+* The 140V Xe2 GPU on the 258V has Vector Engines with 2048-bit XMX units that Intel specs at 64 INT8 TOPS. Each XMX can do INT8 4096 OPS/clock or FP16 2048 OPS/clock, so that would be a max theoretical 32 FP16 TOPS.
+
+For my testing, I use Llama 2 7B (specifically the q4\_0 quant from \[TheBloke/Llama-2-7B-GGUF\]) as my standard benchmark (it is well quantified and has max compatibility). All testing was done with very-up-to-date HEAD compiles (`build: ba6f62eb (4008)`) of llama.cpp. The system itself is running [CachyOS](https://cachyos.org/), a performance focused Arch Linux derivative, and it is running the latest 6.12 kernel `6.12.0-rc5-1-mainline` and `linux-firmware-git` and `mesa-git` for the maximum support for Lunar Lake/Xe2.
+
+My system is running at PL 28W (BIOS: performance), with the performance governor, EPP, and EPB.
+
+It turns out there are quite a few ways to run llama.cpp - I skipped the NPU since it's a PITA to setup, but maybe I'll get bored sometime. Here's my results:
+
+|Backend|pp512 t/s|tg128 t/s|t/TFLOP|MBW %|
+|:-|:-|:-|:-|:-|
+|[CPU](https://github.com/ggerganov/llama.cpp/)|25.05|11.59|52.74|30.23|
+|[Vulkan](https://github.com/ggerganov/llama.cpp/blob/master/docs/build.md#vulkan)|44.65|5.54|1.40|14.45|
+|[SYCL FP32](https://github.com/ggerganov/llama.cpp/blob/master/docs/backend/SYCL.md)|180.77|14.39|5.65|37.53|
+|[SYCL FP16](https://github.com/ggerganov/llama.cpp/blob/master/docs/backend/SYCL.md)|526.38|13.51|16.45|35.23|
+|[IPEX-LLM](https://github.com/intel-analytics/ipex-llm/blob/main/docs/mddocs/Quickstart/llama_cpp_quickstart.md)|708.15|24.35|22.13|63.51|
+
+* pp is prompt processing (also known as prefill, or input) - this is the speed at which any system prompt, context, previous conversation turns, etc are passed in and is compute bound
+* tg is token generation (aka output) - this is the speed at which new tokens are generated and is generally memory bandwidth bound
+* I've included a ""t/TFLOP"" compute efficiency metric for each Backend and also a MBW % which just calculates the percentage of the tg vs the theoretical max tg (136.5 GB/s / 3.56GB model size)
+* The CPU backend doesn't have native FP16. TFLOPS is calculated based on the maximum FP32 that AVX2 provides for the 4 P-Cores (486.4 GFLOPS) at 3.8GHz (my actual all-core max clock). For those interested on llama.cpp's CPU optimizations, I recommend reading jart's writeup [LLaMA Now Goes Faster on CPUs](https://justine.lol/matmul/)
+* For CPU, I use `-t 4`, which uses all 4 of the (non-hyperthreaded) P-cores, which is the most efficient setting. This basically doesn't matter for the rest of the GPU methods.
+
+For SYCL and IPEX-LLM you will need to install the [Intel oneAPI Base Toolkit](https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html). I used version 2025.0.0 for SYCL, but IPEX-LLM's llama.cpp requires 2024.2.1
+
+* Setup docs to [Run llama.cpp with IPEX-LLM on Intel GPU](https://github.com/intel-analytics/ipex-llm/blob/main/docs/mddocs/Quickstart/llama_cpp_quickstart.md) \- as of testing, the llama.cpp was based off of a 2024-08-22 version
+
+The IPEX-LLM results are much better than all the other Backends, but it's worth noting that despite the docs suggesting otherwise, with the Xe2 Arc 140V GPU atm, it **doesn't** seem to work with k-quants ([related to this error?](https://github.com/intel-analytics/ipex-llm/issues/11080)). Still, at 35% faster pp and 80% faster tg than SYCL FP16, it's probably worth trying to use this if you can.
+
+# vs Apple M4
+
+I haven't seen any M4 inference numbers, yet, but this chart/discussion [Performance of llama.cpp on Apple Silicon M-series #4167](https://github.com/ggerganov/llama.cpp/discussions/4167) is a good reference. The M3 Pro (18 CU) has [12.78 FP16 TFLOPS](https://www.cpu-monkey.com/en/igpu-apple_m3_pro_18_core) and at 341.67 t/s pp, that gives a \~26.73 t/TFLOP for Metal performance. The new M4 Pro (20 CU) has an [expected 17.04 TFLOPS](https://www.cpu-monkey.com/en/igpu-apple_m4_pro_20_core) so at the same efficiency you'd expect \~455 t/s for pp. For MBW, we can again run similar back-calculations. The M3 Pro has 150 GB/s MBW and generates 30.74 t/s tg for a 73% MBW efficiency. at 273 GB/s of MBW, we'd expect the M4 Pro to have a ballpark tg of \~56 t/s.
+
+# vs AMD Ryzen AI
+
+The [Radeon 890M](https://www.techpowerup.com/gpu-specs/radeon-890m.c4224) on the top-end Ryzen AI Strix Point chips have 16CUs and a [theoretical 23.76 TFLOPS](https://gpuspecs.com/theoretical-performance-calculator), and with LPDDR5-7500, 120GB/s of MBW. Recently AMD just published an article [Accelerating Llama.cpp Performance in Consumer LLM Applications with AMD Ryzen™ AI 300 Series](https://community.amd.com/t5/ai/accelerating-llama-cpp-performance-in-consumer-llm-applications/ba-p/720311) testing the performance of a Ryzen AI 9 HX 375 with a Intel Core Ultra 7 258V. It mostly focuses on CPU and they similarly note that llama.cpp's Vulkan backend works awfully on the Intel side, so they claim to compare Mistral 7B 0.3 performance w/ IPEX-LLM, however they don't publish any actual performance numbers, just a percentage difference!
+
+Now, I don't have a Strix Point chip, but I do have a 7940HS with a Radeon 780M (16.59 TFLOPS) and dual channel DDR-5600 (89.6 GB/s MBW) so I ran the same benchhmark on a Mistral 7B 0.3 (q4\_0) and did do some ballpark estimates:
+
+|Type|pp512 t/s|tg128 t/s|t/TFLOP|MBW %|
+|:-|:-|:-|:-|:-|
+|140V IPEX-LLM|656.5|22.98|20.52|64.48|
+|780M ROCm|240.79|18.61|14.51|79.55|
+|projected 890M ROCm|*344.76*|*24.92*|14.51|79.55|
+
+I just applied the same efficiency from the 780M results onto the 890M specs to get a projected performance number.
+
+Anyway, I was pretty pleasantly surprised by the IPEX-LLM performance and will be exploring it more as I have time.",2024-11-01 13:16:00,50,https://www.reddit.com/r/LocalLLaMA/comments/1gheslj/testing_llamacpp_with_intels_xe2_igpu_core_ultra/
+1gheq9t,IMO the best model for agents: Qwen2.5 14b,"For a long time, I have been running an engineered CoT agent framework that used GPT 4, then 4o for a while now.
+
+Today, I deployed Qwen2.5 14b and I find it's function calling, CoT reasoning, and instruction following to be fantastic. I might even say, better than GPT 4/4o. For all my use cases, anyway.
+
+p.s. I run this on RunPod using a single A40 which is giving me some decent tokens per second and seems reliable. I set it up using Ollama and the default quantized Qwen2.5 14b model. An A40 is for faster tokens per second, but I imagine you could get away with much smaller for your own needs. Either way, this is at least something I can get my hands on locally, so my next project will be to set this up at home and host it over my home fibre connection to save even more dollars.",2024-11-01 13:13:14,177,https://www.reddit.com/r/LocalLLaMA/comments/1gheq9t/imo_the_best_model_for_agents_qwen25_14b/
+1ghd2qy,Thoughts on a maxed out m4 mac mini for local LLMs?,"I'm not much of a hardware guy, but my curiosity with new technology has me pushing some limits and I need to upgrade from my i5 macbook pro. Is there consensus yet on how a maxed out mac mini for a littler over $2k compares to other hardware setups for LLM / genAI inference? Will I be severely limited by only 64gb of ram? Is it more cost effective to get an m2 studio? Or do I just wait another year until there's a new generation of studios?",2024-11-01 12:00:58,6,https://www.reddit.com/r/LocalLLaMA/comments/1ghd2qy/thoughts_on_a_maxed_out_m4_mac_mini_for_local_llms/
+1ghcm6k,Chinese army scientists use Meta technology to create ‘military AI’,"This kind of article is just ridiculous and they will try to use arguments like that to discourage open source model.
+
+In fact, Chinese military is stupid using llama as they have local models that are just as capable, if not more from Chinese companies.",2024-11-01 11:40:37,256,https://www.telegraph.co.uk/business/2024/11/01/chinese-scientists-use-meta-technology-create-military-ai/
+1ghc0ck,Adding a cheaper GPU to a 4090 to increase VRAM,"At the company I work for, there might be space in the budget of our unit for an NVIDIA P40 or M40 24GB. We have a nice workstation with a 4090 that I have suggested we use for running local llms for coding assistants and RAG pipelines, so that we keep everything private and we get to learn something about these tools when setting them up.   
+I have heard that when there are 2 gpus in the system, Ollama will use the VRAM off both, but only use one for the computations. A very optmistic voice inside my head tells me that it will work fine with two completely different gpus belonging to different generations, but rationally I think there might be issues.   
+Does anyone have any experience with this type of setup? Are there clear reasons why this might not work at all?
+
+Thank you in advance",2024-11-01 11:15:04,10,https://www.reddit.com/r/LocalLLaMA/comments/1ghc0ck/adding_a_cheaper_gpu_to_a_4090_to_increase_vram/
+1ghbmoq,"Docling is a new library from IBM that efficiently parses PDF, DOCX, and PPTX and exports them to Markdown and JSON.",,2024-11-01 10:59:02,608,https://github.com/DS4SD/docling
+1ghbcby,gptme.vim - vim plugin for gptme integration,,2024-11-01 10:46:31,3,https://github.com/ErikBjare/gptme/tree/master/scripts/vim
+1ghbbbt,is it possible to run a AMD 7600 xt with a P40 or M40 on linux?,My main GPU is a 7600 xt on linux mint. it works great for everything I need but it would be nice if my local LLM ran a little faster. would it be worth it for me to buy a P40 or M40 as a secondary GPU? has anyone done it?,2024-11-01 10:45:19,2,https://www.reddit.com/r/LocalLLaMA/comments/1ghbbbt/is_it_possible_to_run_a_amd_7600_xt_with_a_p40_or/
+1ghaz6q,Just tried out Semantic Kernel in .NET,"I’m a .net developer and until now I was using Python to interact with local models, but this means I can use my trusty .NET from now on. Has anyone else have any experience with Semantic Kernel in .NET?",2024-11-01 10:31:04,22,https://i.redd.it/vmbxuxa8sbyd1.jpeg
+1gh9v47,"Paper & Code: 
+Language Models can Self-Lengthen to Generate Long Texts",,2024-11-01 09:43:45,69,https://github.com/QwenLM/Self-Lengthen
+1gh9hhz,RTX 4060 Windows->Linux ,This is little off topic question. I have Windows laptop with Nvidia RTX 4060. I am planning to replace Windows OS with Linux on it. Will there be any issues if I do that? I know the steps how to do that but if anyone has shifted from Windows to Linux then please share your experience.,2024-11-01 09:27:44,2,https://www.reddit.com/r/LocalLLaMA/comments/1gh9hhz/rtx_4060_windowslinux/
+1gh9ezo,Are ADA generation cards actually better than Ampere in all use cases?,"So I was having a quick look at the specification differences between the ampere and Ada generation RTX cards and noticed that the ""equivalent"" models over the two generations actually lose memory bandwidth in ADA:
+
+https://preview.redd.it/lc69yj4ffbyd1.png?width=1516&format=png&auto=webp&s=b823c01a14e8cab8c6926b53f9cd84e91e9a654f
+
+I appreciate the available VRAM and clock speeds are higher, as well as a significant difference in the TFLOPs from the tensor cores, but is this not an unnecessary bottleneck for the kind of work they are designed for? 
+
+I also had a quick look at the RTX 4000 ADA vs the Ampere RTX A5000, on most of the benchmarks, the RXT 4000 ADA is 9% ""better"" than the RTX A5000, but the memory bandwidth is even lower. Couple that with the fact that none of the ADA generation appear to have NVlink, I'm wondering whether there are actually advantages to sticking to ampere cards. The efficiency per watt appears to be drastically better on the Ada generation cards, so I'm wondering whether the main difference is actually aimed at the enterprise running cost metric, rather than actually being a generational leap in raw performance. 
+
+Just thought I'd open it up for discussion, because I feel like I'm missing something blindingly obvious here.",2024-11-01 09:24:44,2,https://www.reddit.com/r/LocalLLaMA/comments/1gh9ezo/are_ada_generation_cards_actually_better_than/
+1gh8h5u,Anyone familiar with AudioLM (TTS)?,I see a lot of questions about local TTS models but haven't heard much about this. Apparently it's what Google uses for the notebook podcast. There is an [implementation of it on github](https://github.com/lucidrains/audiolm-pytorch) but it looks like it takes a bit of training to get it working. I haven't seen any samples of it (other than from the original Google paper)—has anyone here got this working? Or know how tough it might be to get up and running?,2024-11-01 08:45:46,9,https://www.reddit.com/r/LocalLLaMA/comments/1gh8h5u/anyone_familiar_with_audiolm_tts/
+1gh7z7b,simplemind: Python API client for AI providers that intends to replace LangChain and LangGraph for most common use cases,,2024-11-01 08:24:21,16,https://github.com/kennethreitz/simplemind
+1gh7yae,gptme v0.22.0 released - now with early support for Anthropic-style computer use!,,2024-11-01 08:23:14,3,https://github.com/ErikBjare/gptme/releases/tag/v0.22.0
+1gh7nu0,The unreasonable power of the seed,"We talk about how to optimize output from LLM's, but it seems the seed doesn't get any attention?
+
+In my experience (smaller) AI models can give *wildly* different results depending on the random seem they start with. I've tried locking it down to \`42\` to get more predictability. But maybe 42 isn't the answer this time?
+
+\- How much variation in output does it cause compared to other factors? Is there any research into how large this factor's influence is?   
+\- Are there some models that you'd recommend a specific seed for? Is there a list of ""bad seeds""? (Maybe I should ask Nick Cave).  
+\- Is there a LLM testing suite that allows you to run the same test multiple times, while only varying the seed? (and setting temperature to zero obviously).",2024-11-01 08:10:40,0,https://www.reddit.com/r/LocalLLaMA/comments/1gh7nu0/the_unreasonable_power_of_the_seed/
+1gh7bk7,M4 Max 128GB (t/s and fine-tuning) speculation?,"Based on the specs you've seen so far, do you think the M4 Max with 128GB of RAM will be slow at context above 4k? Moreso time to first token for say...a 100GB Q8 quant of Mistral Large 2407. I'm guessing that will at least run 4-5 t/s.
+
+I have seen people saying good things about MLX but haven't tested it myself because I'm stuck with M2 Air 8GB for the time being.
+
+And is it possible to fine tune or the heat generated from hours of sustained fine tuning could shorten the lifespan?",2024-11-01 07:56:16,2,https://www.reddit.com/r/LocalLLaMA/comments/1gh7bk7/m4_max_128gb_ts_and_finetuning_speculation/
+1gh62bl,Building with speech-to-speech models,"We have a few speech-to-speech open weight models available now (e.g. GLM-4-Voice, Ichigo, Moshik(a/o)...). I'm wondering what we'll do to build something that runs locally and can do more than just chat with those new models.
+
+With text-to-text models we have a lot of tools available (e.g. guided generation, function calling...), to get other things to happen beyond just a loop of human turn -> LLM turn...
+
+How would we go about building more complicated user experiences with speech-to-speech models?
+
+My first thought is, during the conversation, do STT and parse that text and do something based on it (perhaps including a text-to-text LLM in the pipeline) to get useful things to happen. Maybe the speech-to-speech LLM you're chatting with doesn't need to know about what happened, but if it does, getting that back into the conversation seems tricky. You could, in theory, do TTS and feed that in to the speech-to-speech model, but I'm not sure we have any tooling for that yet. 
+
+Not sure if this is more of a discussion or a question. Perhaps this is a solved problem and I'm just not aware of the solution. I'd love to hear folks thoughts",2024-11-01 06:59:52,4,https://www.reddit.com/r/LocalLLaMA/comments/1gh62bl/building_with_speechtospeech_models/
+1gh5x25,Best model for web design with hugo or wordpress?,"Hi all
+what's the best open source model to develop a static website with hugo or wordpress? I have tried Mistral-Nemo-Instruct-2407 and can't get hugo to work. apparently the model uses old hugo version and a lot of deprecated codes.
+
+I am fairly blind in website development but need to create a website. squarespace is just too expensive for me. I have access to pc that can run locallama .
+
+thank you for suggestion",2024-11-01 06:53:02,3,https://www.reddit.com/r/LocalLLaMA/comments/1gh5x25/best_model_for_web_design_with_hugo_or_wordpress/
+1gh5mgz,[mlx-lm] Quantized KV Cache (#1075) · ml-explore/mlx-examples@85ffd2c,,2024-11-01 06:38:59,28,https://github.com/ml-explore/mlx-examples/commit/85ffd2c96a45a8cb900f95a2ded61d858d673399
+1gh5gk0,Computer use support (Anthropic-style) just merged into gptme!,,2024-11-01 06:31:36,24,https://i.redd.it/c1w4z54flayd1.png
+1gh4wgz,Do most people run LLMs in gguf format locally?,Maybe it's a dumb question sorry 😅,2024-11-01 06:05:21,84,https://www.reddit.com/r/LocalLLaMA/comments/1gh4wgz/do_most_people_run_llms_in_gguf_format_locally/
+1gh4ht7,Are confidence scores from LLMs meaningful?,"I see a lot of studies prompting LLMs to make a classification decision or some other type of decision and to report a confidence score -- for example, ""Provide a score from 1 (low) to 10 (ten) rating your confidence in this classification."" LLMs follow the instructions, but is the actual score meaningful? This would imply that the models have meta-cognition to appraise their decision-making. This may be possible with the new reasoning layer of ChatGPT. However, based on how models are predicting words, this confidence rating seems to be more of an artifact of how LLMs work as opposed to being truly meaningful.  ",2024-11-01 05:45:07,19,https://www.reddit.com/r/LocalLLaMA/comments/1gh4ht7/are_confidence_scores_from_llms_meaningful/
+1gh30fi,Local model for speaker recognition from voice sample?,"I have dived recently into speaker diarization. I'm currently using WhisperX (which relies on Whisper and Pyannote) to detect speakers and transcribe audio. However, speech diarization from Pyannote labels each speaker with a digit. Is it possible to give a model a few examples of a voice so it can recognize and arbitrarily label such voice?",2024-11-01 04:20:35,3,https://www.reddit.com/r/LocalLLaMA/comments/1gh30fi/local_model_for_speaker_recognition_from_voice/
+1gh2zs3,Running AI on CPU to get more RAM,"Hi! I am wondering, for example if I had a 8 core 16 therad CPU like a 5900hx with 32 gigs of RAM and I tryed to run some models on it, would it be better for running big AI models then for example running the model on an 8 gigabyte 2080?",2024-11-01 04:19:30,5,https://www.reddit.com/r/LocalLLaMA/comments/1gh2zs3/running_ai_on_cpu_to_get_more_ram/
+1gh27a6,Are there any models(>200m) that were trained to achieve generalization(grokking)?,"Especially models that used [https://arxiv.org/pdf/2405.20233](https://arxiv.org/pdf/2405.20233)   
+Because I can't seem to find any.",2024-11-01 03:26:27,13,https://www.reddit.com/r/LocalLLaMA/comments/1gh27a6/are_there_any_models200m_that_were_trained_to/
+1gh1g89,Benchmark proposal: explain-xkcd,"Explaining [xkcd](https://xkcd.com/) comics should be a decent challenge for vision-enabled LLMs. A lot of the comics require a synthesis of contextual understanding and prior knowledge to be able to grasp and explain, and there is also something like a ""ground truth"" already available (via [https://www.explainxkcd.com/](https://www.explainxkcd.com/) ). Both the original comic and the explainer website are available under permissive licensing (CC-BY-NC-2.5 and CC-BY-SA-3.0, respectively), so we should be good so long as proper attribution is provided.
+
+We could use an ELO-rating and let users pick their favorite between two explanations. It should be pretty fun for the people who are voting, too.
+
+What does everyone think? I can whip a demo if people are interested in this.",2024-11-01 02:30:37,193,https://www.reddit.com/r/LocalLLaMA/comments/1gh1g89/benchmark_proposal_explainxkcd/
+1gh1f0p,Model Suggestion,"I'm tired finding models online and after all testing only got 2 good models. which one you think better for rp and erp (i've 30gb vram)  
+\- Mistral Small 22B (09-24) Instuct (Q8) \[Mistral Small template (Latest one)\]
+
+\- Mixtral v0.1 8x7B Instruct (Q4\_K\_M) \[ChatML works alot better on this model.\]
+
+Edit: Mistral Small starts yapping alot. while Mixtral v0.1 8x7B follows character personality alot.",2024-11-01 02:28:00,1,https://www.reddit.com/r/LocalLLaMA/comments/1gh1f0p/model_suggestion/
+1gh0mhr,Message from a cop: generative AI presents ZERO catastrophic CBRN risk,"The local llama community is very good at seeing through the fearmongering by large corporates for what it really is, but we need to become more vocal on educating the public on the fundamental falsehood that knowledge itself presents a catastrophic risk in relation to CBRN weapons of mass destruction.
+
+The issue in this domain is not knowledge, but access to materials. If you're not a farmer, try placing an order for a truckload of fertilizer. It can't be done, access to such supplies is under surveillance. This is the basis of modern policing.
+
+So as we tell people that OpenAI/Anthropic want a moat, we should also explain that their starting premise of a catastrophic risk is fundamentally flawed. It's a lie by omission, misrepresenting how modern society works.",2024-11-01 01:24:27,117,https://www.reddit.com/r/LocalLLaMA/comments/1gh0mhr/message_from_a_cop_generative_ai_presents_zero/
+1gh0dgd,Frontend Considerations?,"I've been starting to toy around using LLM's in LM Studio for information I have to keep local on my work machine, and it works great (recently also tried RAG in AnythingLLM which is really good too).
+
+LM Studio can serve an API, which is fine, and I intend to run it on another computer with GPU and serve to other computers on my LAN (or across the internet).
+
+However, what frontends do you typically use for chatting? I know LM Studio is typically a backend system with a frontend feature (which is really nice) but i can't see how it would work against an external API (not that I've found at least).
+
+So, what similar frontends (with API integration of course) with good conversations management features exist (I'm on both Mac and Win). 
+
+I have searched, but there seems to be a high cadence of software development and releases in this area so anything new and great is nice to see.
+
+  
+Thanks",2024-11-01 01:03:09,4,https://www.reddit.com/r/LocalLLaMA/comments/1gh0dgd/frontend_considerations/
+1gh03v4,Closed and open language models by Chat Arena rank,,2024-11-01 00:41:52,218,https://i.redd.it/2m6r4czyu8yd1.png
+1ggzj03,What format are you using for your RP/ERP character descriptions?,"I’ve been exclusively using W++ since the Pygmalion days since I found the older smaller models tended to have an easier time with W++ than a plain text description. I haven’t bothered to change it up but my guess is that current models would be able to handle almost any format.
+
+So, what’s everyone else using? Anyone found a format that works especially well?",2024-10-31 23:54:05,7,https://www.reddit.com/r/LocalLLaMA/comments/1ggzj03/what_format_are_you_using_for_your_rperp/
