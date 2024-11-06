@@ -2,11 +2,17 @@ import pandas as pd
 from textblob import TextBlob
 
 # Load the comments CSV file
-comments_df = pd.read_csv('localllama_comments.csv', names=['id', 'post_id', 'body', 'created_utc', 'score'])
+comments_df = pd.read_csv('localllama_all_comments_overnight.csv', names=['id', 'post_id', 'body', 'created_utc', 'score'])
 
 # Define a list of model names to track (adjust as needed)
-models_to_track = ['Model A', 'Model B', 'GPT-4', 'LLaMA 2', 'Stable Diffusion', 'ChatGPT', 'Claude']
-
+models_to_track = [
+    "GPT-4o", "Grok-2", "Claude 3.5", "Gemini", "Llama 3.1",
+    "Yi-Large", "GLM-4", "Molmo", "Mixtral of Experts", "GPT-4-Turbo",
+    "Jamba 1.5", "Gemma 2", "Claude", "DeepSeek Coder v2", "Nemotron-4 340B",
+    "Llama 3", "Athene-70B", "Qwen Max", "GPT-3.5", "Phi-3",
+    "Reka Core", "Reka Flash", "Command-R-Plus", "Command R",
+    "Qwen 1.5", "InternLM", "InternVL 2"
+]
 # Function to identify model mentions and calculate sentiment
 def analyze_model_sentiment(comments_df, models):
     model_mentions = {model: {'count': 0, 'total_sentiment': 0} for model in models}
